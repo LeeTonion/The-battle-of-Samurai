@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Thiết lập bảng mã và thẻ viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Liên kết trước với Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Liên kết với font Roboto từ Google Fonts và Font Awesome từ CDN -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-CV54zX0nY8qzW9TtJz3WChU1Za4+ijR0d9RftM6D/OS9bWf1EQxnvoc3avCtDKOf9pKU0lBz8VbLhSPf3om0CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/ccbd4d6bc1.js" crossorigin="anonymous"></script>
+    
+    <!-- Liên kết với tệp CSS để tùy chỉnh giao diện -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tiêu đề của trang -->
+    <title>Menu</title>
+</head>
+<body>
+    <!-- Phần nội dung chính -->
+    <div class="screen">
+        <!-- Biểu tượng để tắt âm thanh -->
+        <i class="fas fa-volume-mute fa-2x" id="sound"></i>
+        
+        <!-- Video nền (autoplay, loop, và muted) -->
+        <video autoplay loop muted id="videoBackgroud">
+            <source src="background.mp4" type="video/mp4"/>
+        </video>
+        
+        <!-- Các tệp âm thanh cho các sự kiện trong game -->
+        <audio id="audioClick">
+            <source src="sounds/buttonclick.wav" type="audio/wav"/>
+        </audio>
+        <audio id="audioHover">
+            <source src="sounds/buttonrollover.wav" type="audio/wav"/>
+        </audio>
+        <audio id="backgroundMusic" loop>
+            <source src="sounds/soundbackground.mp3" type="audio/mp3">
+        </audio>
+        
+        <!-- Container cho hình ảnh fullscreen -->
+        <div id="fullscreen-image-container">
+            <img src="img/control.jpg" id="fullscreen-image">
+            <span class="close-btn" onclick="closeFullscreenImage()"><i class="fas fa-times"></i></span>
+        </div>
+        
+        <!-- Slide credits -->
+        <div id="credits-slide" class="credits-slide">
+            <div class="credits-content">
+                <h2>Credits</h2>
+                <ul>
+                    <!-- Các công trình được ghi nhận -->
+                    <li>Developer: Lê Việt Thành</li>
+                    <li>Designer: Lê Việt Thành</li>
+                    <li>Sound Effects: Youtube, Google</li>
+                    <li>Image: Itch.io, Google</li>
+                    <!-- Thêm credits tùy theo nhu cầu -->
+                </ul>
+                <button onclick="closeCreditsSlide()">Close</button>
+            </div>
+        </div>
+
+        <!-- Menu chính -->
+        <div class="menu">
+            <h1>The battle of Samurai</h1>
+            <h3>----war to the death----</h3>
+            <ul>
+                <!-- Các liên kết đến các trang game, hướng dẫn điều khiển, credits, và thoát -->
+                <li><a href="game 1 player.html" id="play1player-link">PLAY 1 PLAYER</a></li>
+                <li><a href="game 2 player.html" id="play2player-link">PLAY 2 PLAYER</a></li>
+                <li><a href="#" id="control-link">Controls</a></li>
+                <li><a href="#" id="credits-link">Credits</a></li>
+                <li><a href="#" id="quit-link">Quit</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Kịch bản JavaScript để xử lý các sự kiện trong trang -->
+    <script src="js/script.js"></script>
+</body>
+</html>

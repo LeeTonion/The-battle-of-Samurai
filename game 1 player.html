@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Preconnect để kết nối trước với Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Liên kết đến font Roboto và Press Start 2P từ Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <!-- Icon Material Design cho biểu tượng -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Liên kết đến tệp CSS bên ngoài để tùy chỉnh giao diện -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Container chính với kiểu hiển thị là inline-block và vị trí tương đối -->
+    <div style="position: relative; display: inline-block">
+        
+        <!-- Thanh chứa thanh máu, đồng hồ đếm và các phần khác -->
+        <div style="position: absolute; display: flex; width: 100%; align-items: center; padding: 20px;">
+            
+            <!-- Thanh máu của người chơi -->
+            <div class="health-bar player">
+                <div class="health-red"></div>
+                <div id="playerHealth" class="health-blue"></div>
+            </div>
+  
+            <!-- Đồng hồ đếm thời gian -->
+            <div id="timer" class="timer">GO</div>
+
+            <!-- Thanh máu của đối thủ -->
+            <div class="health-bar enemy">
+                <div class="health-red"></div>
+                <div id="enemyHealth" class="health-blue"></div>
+            </div>
+        </div>
+       
+        <!-- Container đếm ngược -->
+        <div id="countdownContainer" class="countdown-container">
+            <div id="countdownTimer" class="countdown-timer"></div>
+        </div>
+        
+        <!-- Thông báo "Fight!" -->
+        <div id="alertMessage" class="alert-message">Fight!</div>
+        
+        <!-- Hiển thị kết quả trận đấu -->
+        <div id="displayText" class="display-text">Tie</div>
+        
+        <!-- Menu khi kết thúc game (ban đầu ẩn) -->
+        <div id="gameOverMenu" class="hidden">  
+            <button onclick="restartmenu()"><i class="material-icons">home</i></button>
+            <button onclick="restartgame()"><i class="material-icons">restart_alt</i></button>
+        </div>
+        
+        <!-- Các phần tử âm thanh cho các sự kiện trong game với thuộc tính loop để lặp lại -->
+        <audio id="attacksound" loop>
+            <source src="sounds/attacksound.mp3" type="audio/mp3">
+        </audio>
+        <audio id="attacksound1" loop>
+            <source src="sounds/attacksound.mp3" type="audio/mp3">
+        </audio>
+        <audio id="attackfail" loop>
+            <source src="sounds/attackfail.mp3" type="audio/mp3">
+        </audio>
+        <audio id="jumpsound" loop>
+            <source src="sounds/jumpsound.mp3" type="audio/mp3">
+        </audio>
+        <audio id="jumpsound1" loop>
+            <source src="sounds/jumpsound.mp3" type="audio/mp3">
+        </audio>
+        <audio id="landingsound" loop>
+            <source src="sounds/landingsound.mp3" type="audio/mp3">
+        </audio>
+        <audio id="runsound" loop>
+            <source src="sounds/runsound.mp3" type="audio/mp3">
+        </audio>
+        <audio id="runsound1" loop>
+            <source src="sounds/runsound.mp3" type="audio/mp3">
+        </audio>
+        <audio id="dashsound" loop>
+            <source src="sounds/dashsound.mp3" type="audio/mp3">
+        </audio>
+        <audio id="soundingame" loop>
+            <source src="sounds/soundingame.mp3" type="audio/mp3">
+        </audio>
+        
+        <!-- Thẻ canvas để vẽ đồ họa trong game -->
+        <canvas></canvas>
+    </div>
+
+    <!-- Bao gồm thư viện GSAP để thực hiện các hiệu ứng chuyển động -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Các tệp JavaScript tự viết để xử lý logic game -->
+    <script src="js/utils.js"></script>
+    <script src="js/classes.js"></script>
+    <script src="js/index 1 player.js"></script>
+</body>
