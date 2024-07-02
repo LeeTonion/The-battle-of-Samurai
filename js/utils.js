@@ -92,7 +92,7 @@ function showGameOverMenu() {
 
 // Hàm khởi động lại trò chơi
 function restartmenu() {
-  window.location.href = "menu.html"; // Chuyển hướng đến trang menu (thay đổi đường dẫn nếu cần thiết)
+  window.location.href = "index.html"; // Chuyển hướng đến trang menu (thay đổi đường dẫn nếu cần thiết)
 }
 
 // Hàm tải lại trang để khởi động lại trò chơi

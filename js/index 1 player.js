@@ -12,7 +12,7 @@ const soundingame = document.getElementById('soundingame');
 
 // Thiết lập kích thước của canvas
 canvas.width = 1520;
-canvas.height = 845;
+canvas.height = 830;
 
 // Đổ màu nền cho canvas
 c.fillRect(0, 0, canvas.width, canvas.height);
@@ -117,7 +117,7 @@ function animate() {
   // Cập nhật background
   background.update();
   
-  // Vẽ màu nền xuyên qua
+  // Vẽ màu nền 
   c.fillStyle = 'rgba(255, 255, 255, 0.15)';
   c.fillRect(0, 0, canvas.width, canvas.height);
   
@@ -135,14 +135,14 @@ function animate() {
   } else {
     a = 'idle1';
   }
-  
+  player.attackCooldown = 800; // Tạo tốc độ của người chơi bằng 0.8
   // Chọn sprite cho enemy dựa trên hướng mà enemy đang nhìn
   if (enemy.isFacingRight) {
     b = 'idle';
   } else {
     b = 'idle1';
   }
-
+  enemy.attackCooldown = 1500 // Tạo tốc độ của người chơi bằng 1.5
   // Di chuyển người chơi
   if (keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -5;
@@ -157,6 +157,7 @@ function animate() {
   } else {
     player.switchSprite(a);
     runsound.pause();
+    
   }
 
   // Chuyển sprite khi người chơi nhảy hoặc rơi
@@ -196,6 +197,7 @@ function animate() {
       enemy.attack();
       enemy.velocity.x = 0;
       enemy.switchSprite(b);
+      
     }
 
     // Nhảy ngẫu nhiên
@@ -284,7 +286,7 @@ function startgame() {
 function closegame() {
   setTimeout(() => {
     if(enemy.isGrounded){enemyMove = false;}
-  }, 500); // Tắt di chuyển enemy sau 0.5 giây
+  }, 1000); // Tắt di chuyển enemy sau 1 giây
 }
 
 // Bắt đầu game và bắt đầu bật di chuyển enemy sau một khoảng thời gian

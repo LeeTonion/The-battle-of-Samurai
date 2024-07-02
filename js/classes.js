@@ -119,7 +119,7 @@ class Fighter extends Sprite {
     this.dashDuration = 5; // Thời gian lướt của nhân vật
     this.dashElapsed = 0; // Thời gian đã lướt của nhân vật
     this.canAttack = true; // Có thể tấn công hay không
-    this.attackCooldown = 1500; // Thời gian hồi chiêu tấn công
+    this.attackCooldown ; // Thời gian hồi chiêu tấn công
     this.canDash = true; // Có thể lướt hay không
     this.dashCooldown = 1000; // Thời gian hồi chiêu lướt
 
@@ -202,7 +202,7 @@ class Fighter extends Sprite {
       this.position.y += this.velocity.y;
 
       //Kiểm tra nhân vật có chạm đất hay không 
-      if (this.position.y + this.height + this.velocity.y >= canvas.height - 64) {
+      if (this.position.y + this.height + this.velocity.y >= canvas.height - 40) {
         this.velocity.y = 0;
         this.position.y = 670;
         if (this.isGrounded == false) {
@@ -213,6 +213,15 @@ class Fighter extends Sprite {
       } else {
         this.velocity.y += gravity;
         this.isGrounded = false; // Cập nhật trạng thái isGrounded khi nhân vật không chạm đất
+      }
+      // Kiểm tra biên trái
+      if (this.position.x < 0) {
+        this.position.x = 0;
+      }
+
+      // Kiểm tra biên phải
+      if (this.position.x + this.width > canvas.width) {
+        this.position.x = canvas.width - this.width;
       }
     }
   }
