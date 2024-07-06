@@ -19,15 +19,15 @@ function determineWinner({ player, enemy, timerId }) {
   // Xác định người chiến thắng dựa trên sức khỏe của người chơi và địch
   if (player.health === enemy.health) {
     document.querySelector('#displayText').innerHTML = 'Tie'; // Hòa
-    closegame(); // Dừng hành động của người chơi
+
     startmenu(); // Hiển thị menu bắt đầu lại
   } else if (player.health > enemy.health) {
     document.querySelector('#displayText').innerHTML = 'Player 1 Wins'; // Người chơi 1 thắng
-    closegame(); // Dừng hành động của người chơi
+
     startmenu(); // Hiển thị menu bắt đầu lại
   } else if (player.health < enemy.health) {
     document.querySelector('#displayText').innerHTML = 'Player 2 Wins'; // Người chơi 2 thắng
-    closegame(); // Dừng hành động của người chơi
+
     startmenu(); // Hiển thị menu bắt đầu lại
     
   }
@@ -105,5 +105,11 @@ function startmenu() {
     showGameOverMenu(); // Hiển thị menu game over
   }, 3000); // Hiển thị menu sau 3 giây
 }
-
+function showConfirmation() {
+  var result = confirm("Bạn có muốn về menu không?");
+  if (result) {
+     window.location.href = "index.html"; // Chuyển hướng đến trang menu (thay đổi đường dẫn nếu cần thiết)
+  } 
+  
+}
 

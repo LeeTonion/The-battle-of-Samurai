@@ -135,14 +135,14 @@ function animate() {
   } else {
     a = 'idle1';
   }
-  player.attackCooldown = 800; // Tạo tốc độ của người chơi bằng 0.8
+  player.attackCooldown = 800; // Tạo tốc độ đánh của người chơi bằng 0.8
   // Chọn sprite cho enemy dựa trên hướng mà enemy đang nhìn
   if (enemy.isFacingRight) {
     b = 'idle';
   } else {
     b = 'idle1';
   }
-  enemy.attackCooldown = 1500 // Tạo tốc độ của người chơi bằng 1.5
+  enemy.attackCooldown = 1500 // Tạo tốc độ đánh của người chơi bằng 1.5
   // Di chuyển người chơi
   if (keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -5;
@@ -317,6 +317,9 @@ window.addEventListener('keydown', (event) => {
         break;
       case 's':
         player.dash();
+        break;
+      case 'p':
+        showConfirmation();
         break;
     }
   }

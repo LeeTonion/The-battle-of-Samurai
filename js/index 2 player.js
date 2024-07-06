@@ -134,13 +134,15 @@ function animate() {
   } else {
     a = 'idle1';
   }
-  
+  player.attackCooldown = 800; // Tạo tốc độ đánh của người chơi bằng 0.8
   // Chọn sprite cho enemy dựa trên hướng mà enemy đang nhìn
   if (enemy.isFacingRight) {
     b = 'idle';
   } else {
     b = 'idle1';
   }
+  enemy.attackCooldown = 1500 // Tạo tốc độ đánh của người chơi bằng 1.5
+  // Di chuyển người chơi
 
   // Di chuyển người chơi
   if (keys.a.pressed && player.lastKey === 'a') {
@@ -295,6 +297,9 @@ window.addEventListener('keydown', (event) => {
     case 'ArrowDown':
       enemy.dash1()
       break
+      case 'p':
+        showConfirmation();
+        break;
   }
 })
 
