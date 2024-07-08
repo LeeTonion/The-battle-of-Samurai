@@ -281,6 +281,8 @@ class Fighter extends Sprite {
     
     if (this.image === this.sprites.takeHit.image && this.framesCurrent < this.framesMax - 1) return;
     if (this.image === this.sprites.takeHit1.image && this.framesCurrent > 0) return;
+    if (this.image === this.sprites.death.image && this.framesCurrent < this.framesMax - 1) return;
+    if (this.image === this.sprites.death1.image && this.framesCurrent > 0) return;
 
     // Chuyển đổi sprite 
     switch (sprite) {

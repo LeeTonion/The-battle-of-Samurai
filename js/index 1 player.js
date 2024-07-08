@@ -1,3 +1,4 @@
+
 // Lấy canvas và context từ HTML
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
@@ -124,7 +125,8 @@ function animate() {
   // Cập nhật và vẽ người chơi và enemy
   player.update();
   enemy.update();
-  
+  if (enemyMove) { 
+  start =true
   // Đặt lại vận tốc x của player và enemy về 0
   player.velocity.x = 0;
   enemy.velocity.x = 0;
@@ -172,7 +174,7 @@ function animate() {
   }
 
   // Xử lý di chuyển của enemy nếu enemyMove được bật
-  if (enemyMove) {
+  
     if (enemy.position.x > player.position.x) {
       enemy.velocity.x = -3;
       enemy.changeDirection('right');
@@ -285,7 +287,10 @@ function startgame() {
 // Hàm tắt di chuyển của enemy sau một khoảng thời gian delay
 function closegame() {
   setTimeout(() => {
-    if(enemy.isGrounded){enemyMove = false;}
+    enemyMove = false;
+    player.velocity.x=0;
+    enemy.velocity.x=0
+    start = false
   }, 1000); // Tắt di chuyển enemy sau 1 giây
 }
 
@@ -313,13 +318,15 @@ window.addEventListener('keydown', (event) => {
         }
         break;
       case 'f':
-        player.attack();
+        if(start){player.attack();}
+        
         break;
       case 's':
-        player.dash();
+        if (start){player.dash();}
+        
         break;
       case 'p':
-        showConfirmation();
+        showPauseMenu();
         break;
     }
   }

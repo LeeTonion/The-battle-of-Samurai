@@ -298,7 +298,7 @@ window.addEventListener('keydown', (event) => {
       enemy.dash1()
       break
       case 'p':
-        showConfirmation();
+        showPauseMenu();
         break;
   }
 })

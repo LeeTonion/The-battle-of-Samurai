@@ -1,3 +1,6 @@
+
+let pause = false;
+let time = true;
 // Hàm kiểm tra va chạm hình chữ nhật giữa hai đối tượng
 function rectangularCollision({ rectangle1, rectangle2 }) {
   return (
@@ -40,7 +43,7 @@ let timerId; // ID của hàm đếm ngược
 function decreaseTimer() {
   if (timer > 0) {
     timerId = setTimeout(decreaseTimer, 1000); // Gọi lại hàm sau mỗi giây
-    timer--; // Giảm thời gian
+    if (time){timer--;} // Giảm thời gian
     if (timer <= 100) {
       document.querySelector('#timer').innerHTML = timer; // Cập nhật hiển thị thời gian
     }
@@ -88,6 +91,28 @@ document.addEventListener("DOMContentLoaded", function() {
 // Hàm hiển thị menu game over
 function showGameOverMenu() {
   document.getElementById("gameOverMenu").style.display = "block"; // Hiển thị menu game over
+
+}
+// Hàm hiển thị menu game over
+function showPauseMenu() {
+  var gamePauseMenu = document.getElementById("gameOverMenu");
+
+  // Nếu menu game over đang hiển thị, ẩn nó đi
+  if (pause) {
+    gamePauseMenu.style.display = "none";
+    pause = false;
+    time= true
+    enemyMove =true;
+    
+  } else { // Nếu menu game over đang ẩn, hiển thị nó lên
+    gamePauseMenu.style.display = "block";
+    pause = true;
+    time = false;
+    enemyMove =false;
+    player.velocity.x = 0;
+    enemy.velocity.x = 0;
+    
+  }
 }
 
 // Hàm khởi động lại trò chơi
@@ -105,11 +130,5 @@ function startmenu() {
     showGameOverMenu(); // Hiển thị menu game over
   }, 3000); // Hiển thị menu sau 3 giây
 }
-function showConfirmation() {
-  var result = confirm("Bạn có muốn về menu không?");
-  if (result) {
-     window.location.href = "index.html"; // Chuyển hướng đến trang menu (thay đổi đường dẫn nếu cần thiết)
-  } 
-  
-}
+
 
