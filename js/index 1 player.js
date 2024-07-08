@@ -311,7 +311,7 @@ window.addEventListener('keydown', (event) => {
         player.lastKey = 'a';
         break;
       case 'w':
-        if (player.isGrounded) {
+        if (player.isGrounded && start) {
           player.velocity.y = -20;
           jumpsound.loop = false;
           jumpsound.play();

@@ -111,7 +111,7 @@ function showPauseMenu() {
     enemyMove =false;
     player.velocity.x = 0;
     enemy.velocity.x = 0;
-    
+    start = false
   }
 }
 
