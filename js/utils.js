@@ -22,7 +22,6 @@ function determineWinner({ player, enemy, timerId }) {
   // Xác định người chiến thắng dựa trên sức khỏe của người chơi và địch
   if (player.health === enemy.health) {
     document.querySelector('#displayText').innerHTML = 'Tie'; // Hòa
-
     startmenu(); // Hiển thị menu bắt đầu lại
   } else if (player.health > enemy.health) {
     document.querySelector('#displayText').innerHTML = 'Player 1 Wins'; // Người chơi 1 thắng
@@ -104,7 +103,9 @@ function showPauseMenu() {
     time= true
     enemyMove =true;
     
-  } else { // Nếu menu game over đang ẩn, hiển thị nó lên
+  }
+  // Nếu menu game over đang ẩn, hiển thị nó lên
+  else { 
     gamePauseMenu.style.display = "block";
     pause = true;
     time = false;

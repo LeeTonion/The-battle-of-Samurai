@@ -12,9 +12,8 @@ const runsound1 = document.getElementById('runsound1')
 const soundingame = document.getElementById('soundingame')
 
 // Thiết lập kích thước của canvas
-canvas.width = 1520
-canvas.height = 845
-
+canvas.width = 1520;
+canvas.height = 830;
 // Đổ màu nền cho canvas
 c.fillRect(0, 0, canvas.width, canvas.height)
 
@@ -297,7 +296,7 @@ window.addEventListener('keydown', (event) => {
     case 'ArrowDown':
       enemy.dash1()
       break
-      case 'p':
+      case 'Escape':
         showPauseMenu();
         break;
   }

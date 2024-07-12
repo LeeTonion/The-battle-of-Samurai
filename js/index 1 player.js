@@ -325,7 +325,7 @@ window.addEventListener('keydown', (event) => {
         if (start){player.dash();}
         
         break;
-      case 'p':
+      case 'Escape':
         showPauseMenu();
         break;
     }
