@@ -177,7 +177,6 @@ class Fighter extends Sprite {
         this.attackBox.position.x = this.position.x + this.width - this.attackBox.offset.x - this.attackBox.width;
       }
       this.attackBox.position.y = this.position.y + this.attackBox.offset.y;
-      c.fillRect(this.attackBox.position.x,this.attackBox.position.y,this.attackBox.width,this.attackBox.height)
     // Xử lý hành động lướt của nhân vật
 
     if (this.isDashing) {
