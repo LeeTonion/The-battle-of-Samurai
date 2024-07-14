@@ -53,7 +53,7 @@ const player = new Fighter({
     death1: { imageSrc: './img/samuraiMack/Death1.png', framesMax: 6 }
   },
   attackBox: {
-    offset: { x: 100, y: 50 },
+    offset: { x: 20, y: 15 },
     width: 160,
     height: 50
   }
@@ -88,7 +88,7 @@ const enemy = new Fighter({
     death1: { imageSrc: './img/kenji/Death1.png', framesMax: 7 }
   },
   attackBox: {
-    offset: { x: -170, y: 50 },
+    offset: { x: -170, y: 15 },
     width: 170,
     height: 50
   }

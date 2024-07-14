@@ -167,7 +167,6 @@ class Fighter extends Sprite {
   update() {
     this.draw();
     if (!this.dead) this.animateFrames();
-
     // Cập nhật vị trí hộp tấn công
     if (this.isFacingRight) 
       {
@@ -178,8 +177,9 @@ class Fighter extends Sprite {
         this.attackBox.position.x = this.position.x + this.width - this.attackBox.offset.x - this.attackBox.width;
       }
       this.attackBox.position.y = this.position.y + this.attackBox.offset.y;
-
+      c.fillRect(this.attackBox.position.x,this.attackBox.position.y,this.attackBox.width,this.attackBox.height)
     // Xử lý hành động lướt của nhân vật
+
     if (this.isDashing) {
       if (this.dashElapsed < this.dashDuration) {
         this.position.x += this.isFacingRight ? this.dashSpeed : -this.dashSpeed;
@@ -190,8 +190,7 @@ class Fighter extends Sprite {
     }
     if (this.isDashing1) {
       if (this.dashElapsed < this.dashDuration) {
-        this.position.x +=
-          this.isFacingRight ? -this.dashSpeed : this.dashSpeed;
+        this.position.x += this.isFacingRight ? -this.dashSpeed : this.dashSpeed;
         this.dashElapsed++;
       } else {
         this.isDashing1 = false;

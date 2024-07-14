@@ -291,6 +291,7 @@ function closegame() {
     player.velocity.x=0;
     enemy.velocity.x=0
     start = false
+    if(player.health <= 0){enemy.switchSprite("idle")}
   }, 1000); // Tắt di chuyển enemy sau 1 giây
 }
 

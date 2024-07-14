@@ -94,7 +94,7 @@ function showGameOverMenu() {
 }
 // Hàm hiển thị menu game over
 function showPauseMenu() {
-  var gamePauseMenu = document.getElementById("gameOverMenu");
+  var gamePauseMenu = document.getElementById("gamePause");
 
   // Nếu menu game over đang hiển thị, ẩn nó đi
   if (pause) {
@@ -112,7 +112,7 @@ function showPauseMenu() {
     enemyMove =false;
     player.velocity.x = 0;
     enemy.velocity.x = 0;
-    start = false
+    start = false;
   }
 }
 
