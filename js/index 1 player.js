@@ -293,7 +293,7 @@ function closegame() {
     start = false;
     if (enemy.health <= 0){player.switchSprite("idle")}
     if (player.health <= 0){enemy.switchSprite("idle")}
-  }, 300); // Tắt di chuyển enemy sau 1 giây
+  }, 1000); // Tắt di chuyển enemy sau 1 giây
 }
 
 // Bắt đầu game và bắt đầu bật di chuyển enemy sau một khoảng thời gian
