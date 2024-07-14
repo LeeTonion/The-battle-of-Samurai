@@ -140,7 +140,7 @@ function animate() {
   } else {
     b = 'idle1';
   }
-  enemy.attackCooldown = 1500 // Tạo tốc độ đánh của người chơi bằng 1.5
+  enemy.attackCooldown = 1000 // Tạo tốc độ đánh của người chơi bằng 1
   // Di chuyển người chơi
 
   // Di chuyển người chơi

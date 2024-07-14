@@ -60,7 +60,7 @@ const player = new Fighter({
     death1: { imageSrc: './img/samuraiMack/Death1.png', framesMax: 6 }
   },
   attackBox: {
-    offset: { x: 100, y: 50 },
+    offset: { x: 20, y: 15 },
     width: 160,
     height: 50
   }
@@ -95,7 +95,7 @@ const enemy = new Fighter({
     death1: { imageSrc: './img/kenji/Death1.png', framesMax: 7 }
   },
   attackBox: {
-    offset: { x: -170, y: 50 },
+    offset: { x: -170, y: 15 },
     width: 170,
     height: 50
   }
@@ -144,7 +144,7 @@ function animate() {
   } else {
     b = 'idle1';
   }
-  enemy.attackCooldown = 1500 // Tạo tốc độ đánh của người chơi bằng 1.5
+  enemy.attackCooldown = 1000 // Tạo tốc độ đánh của người chơi bằng 1
   // Di chuyển người chơi
   if (keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -5;
@@ -290,9 +290,10 @@ function closegame() {
     enemyMove = false;
     player.velocity.x=0;
     enemy.velocity.x=0
-    start = false
-    if(player.health <= 0){enemy.switchSprite("idle")}
-  }, 1000); // Tắt di chuyển enemy sau 1 giây
+    start = false;
+    if (enemy.health <= 0){player.switchSprite("idle")}
+    if (player.health <= 0){enemy.switchSprite("idle")}
+  }, 300); // Tắt di chuyển enemy sau 1 giây
 }
 
 // Bắt đầu game và bắt đầu bật di chuyển enemy sau một khoảng thời gian
